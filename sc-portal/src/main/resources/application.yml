@@ -1,0 +1,11 @@
+#注册中心
+spring:
+  application:
+    name: sc-portal
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+server:
+  port: 0

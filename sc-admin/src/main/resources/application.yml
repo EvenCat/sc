@@ -1,0 +1,18 @@
+server:
+  port: 8082
+#注册中心
+
+spring:
+  application:
+    name: sc-admin
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+#日志地址
+logging:
+  config: classpath:config/logback.xml
+  level:
+    com:
+      demo: debug

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.even.mapper.UserMapper">
+
+    <resultMap id="SecurityUserMap" type="com.even.pojo.dto.UserDTO">
+        <id column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="username" property="username"/>
+        <result column="state" property="status"/>
+        <collection column="id" property="roles" select="com.even.mapper.RoleMapper.getUserRole"/>
+    </resultMap>
+
+    <select id="getUserByUsername" resultMap="SecurityUserMap">
+        SELECT id,username,password,state FROM user WHERE username = #{username}
+    </select>
+    <select id="getUserById" resultType="com.even.pojo.entity.UserEntity">
+        SELECt id,username,pasword FROM user WHERE id = #{id} AND state = #{state}
+    </select>
+</mapper>
